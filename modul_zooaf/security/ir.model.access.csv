@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_zooaf_zoo,access_zooaf_zoo,model_zooaf_zoo,base.group_user,1,1,1,1
+access_zooaf_animal,access_zooaf_animal,model_zooaf_animal,base.group_user,1,1,1,1
+access_zooaf_especie,access_zooaf_especie,model_zooaf_especie,base.group_user,1,1,1,1
