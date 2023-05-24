@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-	<record model="ir.actions.act_window" id="action_planeaf_aeroport_tree">
+	<record model="ir.actions.act_window" id="action_planeaf_aeroport">
 		<field name="name">Aeroport</field>
 		<field name="res_model">planeaf.aeroport</field>
+		<field name="view_mode">tree,form</field>
 	</record>
 
-	<record model="ir.actions.act_window" id="action_planeaf_vol_tree">
+	<record model="ir.actions.act_window" id="action_planeaf_vol">
 		<field name="name">Vol</field>
 		<field name="res_model">planeaf.vol</field>
+		<field name="view_mode">tree,form</field>
 	</record>
 
-	<record model="ir.actions.act_window" id="action_planeaf_pilot_tree">
+	<record model="ir.actions.act_window" id="action_planeaf_pilot">
 		<field name="name">Pilot</field>
 		<field name="res_model">planeaf.pilot</field>
+		<field name="view_mode">tree,form</field>
 	</record>
 
-	<record model="ir.actions.act_window" id="action_planeaf_avio_tree">
+	<record model="ir.actions.act_window" id="action_planeaf_avio">
 		<field name="name">Avio</field>
 		<field name="res_model">planeaf.avio</field>
+		<field name="view_mode">tree,form</field>
 	</record>
 
-	<menuitem name="Plane" id="plane_menu1" />
-	<menuitem name="Aeroport" parent="plane_menu1" id="plane_menu1_1" action="action_planeaf_aeroport_tree" />	
-	<menuitem name="Vol" parent="plane_menu1" id="plane_menu1_2" action="action_planeaf_vol_tree" />	
-	<menuitem name="Pilot" parent="plane_menu1" id="plane_menu1_3" action="action_planeaf_pilot_tree" />
-	<menuitem name="Avio" parent="plane_menu1" id="plane_menu1_4" action="action_planeaf_avio_tree" />		
+	<menuitem name="Plane" id="plane_menu_1" />
+	<menuitem name="Aeroport" parent="plane_menu_1" id="plane_menu_2_aeroport" action="action_planeaf_aeroport"/>	
+	<menuitem name="Vol" parent="plane_menu_1" id="plane_menu_2_vol" action="action_planeaf_vol"/>	
+	<menuitem name="Pilot" parent="plane_menu_1" id="plane_menu_2_pilot" action="action_planeaf_pilot"/>
+	<menuitem name="Avio" parent="plane_menu_1" id="plane_menu_2_avio" action="action_planeaf_avio"/>		
 
 	<record model="ir.ui.view" id="view_planeaf_aeroport_tree">
-		<field name="name">planeaf_aeroport</field>
+		<field name="name">planeaf_aeroport_tree</field>
 		<field name="model">planeaf.aeroport</field>
 		<field name="type">tree</field>
 		<field name="arch" type="xml">
 			<tree string="Aeroport">
-				<field name="codi"/>
+				<field name="name"/>
 				<field name="nom"/>
 				<field name="imatge"/>
 				<field name="ciutat"/>
@@ -45,12 +49,12 @@
 	</record>
 
 	<record model="ir.ui.view" id="view_planeaf_vol_tree">
-		<field name="name">planeaf_vol</field>
+		<field name="name">planeaf_vol_tree</field>
 		<field name="model">planeaf.vol</field>
 		<field name="type">tree</field>
 		<field name="arch" type="xml">
 			<tree string="Vol">
-				<field name="codi"/>
+				<field name="name"/>
 				<field name="passatgers"/>
 				<field name="dataSortida"/>
 				<field name="dataArribada"/>				
@@ -59,12 +63,12 @@
 	</record>
 
 	<record model="ir.ui.view" id="view_planeaf_pilot_tree">
-		<field name="name">planeaf_pilot</field>
+		<field name="name">planeaf_pilot_tree</field>
 		<field name="model">planeaf.pilot</field>
 		<field name="type">tree</field>
 		<field name="arch" type="xml">
 			<tree string="Pilot">
-				<field name="codi"/>
+				<field name="name"/>
 				<field name="nom"/>
 				<field name="cognoms"/>				
 				<field name="nif"/>
@@ -75,17 +79,91 @@
 	</record>
 
 	<record model="ir.ui.view" id="view_planeaf_avio_tree">
-		<field name="name">planeaf_avio</field>
+		<field name="name">planeaf_avio_tree</field>
 		<field name="model">planeaf.avio</field>
 		<field name="type">tree</field>
 		<field name="arch" type="xml">
 			<tree string="Avio">
-				<field name="codi"/>
+				<field name="name"/>
 				<field name="imatge"/>
 				<field name="marca"/>				
 				<field name="model"/>
 				<field name="maxVel"/>				
 			</tree>
+		</field>
+	</record>
+
+	<!--Forms view-->
+
+
+	<record model="ir.ui.view" id="view_planeaf_aeroport_form">
+  		<field name="name">planeaf_aeroport_form</field>
+  		<field name="model">planeaf.aeroport</field>
+  		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Aeroport">
+				<group colspan="4">
+					<field name="name"/>
+					<field name="nom"/>
+					<field name="imatge"/>
+					<field name="ciutat"/>
+					<field name="pais"/>
+					<field name="latitud"/>
+					<field name="longitud"/>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_planeaf_vol_form">
+  		<field name="name">planeaf_vol_form</field>
+  		<field name="model">planeaf.vol</field>
+  		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Vol">
+				<group colspan="4">
+					<field name="name"/>
+					<field name="passatgers"/>
+					<field name="dataSortida"/>
+					<field name="dataArribada"/>
+				</group>				
+			</form>
+		</field>
+
+	</record>
+
+	<record model="ir.ui.view" id="view_planeaf_pilot_form">
+  		<field name="name">planeaf_pilot_form</field>
+  		<field name="model">planeaf.pilot</field>
+  		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Pilot">
+				<group colspan="4">
+					<field name="name"/>
+					<field name="nom"/>
+					<field name="cognoms"/>				
+					<field name="nif"/>
+					<field name="telf"/>
+					<field name="email"/>
+				</group>				
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_planeaf_avio_form">
+  		<field name="name">planeaf_avio_form</field>
+  		<field name="model">planeaf.avio</field>
+  		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Avio">
+				<group colspan="4">
+					<field name="name"/>
+					<field name="imatge"/>
+					<field name="marca"/>				
+					<field name="model"/>
+					<field name="maxVel"/>
+				</group>			
+			</form>
 		</field>
 	</record>
 

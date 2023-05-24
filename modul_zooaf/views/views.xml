@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-	<record model="ir.actions.act_window" id="action_zooaf_zoo_tree">
+	<record model="ir.actions.act_window" id="action_zooaf_zoo">
 		<field name="name">Zoo</field>
 		<field name="res_model">zooaf.zoo</field>
+		<field name="view_mode">tree,form</field>
 	</record>
 
-	<record model="ir.actions.act_window" id="action_zooaf_animal_tree">
+	<record model="ir.actions.act_window" id="action_zooaf_animal">
 		<field name="name">Animal</field>
 		<field name="res_model">zooaf.animal</field>
+		<field name="view_mode">tree,form</field>
 	</record>
 
-	<record model="ir.actions.act_window" id="action_zooaf_especie_tree">
+	<record model="ir.actions.act_window" id="action_zooaf_especie">
 		<field name="name">Especie</field>
 		<field name="res_model">zooaf.especie</field>
+		<field name="view_mode">tree,form</field>
 	</record>
 
-	<menuitem name="Zoo" id="zoo_menu1" />
-	<menuitem name="Zoo" parent="zoo_menu1" id="zoo_menu1_1" action="action_zooaf_zoo_tree" />	
-	<menuitem name="Animal" parent="zoo_menu1" id="zoo_menu1_2" action="action_zooaf_animal_tree" />	
-	<menuitem name="Especie" parent="zoo_menu1" id="zoo_menu1_3" action="action_zooaf_especie_tree" />		
+	<menuitem name="Zoo" id="zoo_menu_1"/>
+	<menuitem name="Zoo" parent="zoo_menu_1" id="zoo_menu_2_zoo" action="action_zooaf_zoo"/>	
+	<menuitem name="Animal" parent="zoo_menu_1" id="zoo_menu_2_animal" action="action_zooaf_animal"/>	
+	<menuitem name="Especie" parent="zoo_menu_1" id="zoo_menu_2_especie" action="action_zooaf_especie"/>		
 
 	<record model="ir.ui.view" id="view_zooaf_zoo_tree">
-		<field name="name">zooaf.zoo</field>
+		<field name="name">zooaf.zoo_tree</field>
 		<field name="model">zooaf.zoo</field>
 		<field name="type">tree</field>
 		<field name="arch" type="xml">
 			<tree string="Zoo">
-				<field name="id"/>
+				<field name="name"/>
 				<field name="nom"/>
 				<field name="grandaria"/>
 				<field name="ciutat"/>
@@ -37,12 +40,12 @@
 	</record>
 
 	<record model="ir.ui.view" id="view_zooaf_animal_tree">
-		<field name="name">zooaf.animal</field>
+		<field name="name">zooaf.animal_tree</field>
 		<field name="model">zooaf.animal</field>
 		<field name="type">tree</field>
 		<field name="arch" type="xml">
 			<tree string="Animal">
-				<field name="id"/>
+				<field name="name"/>
 				<field name="continentOrigen"/>
 				<field name="dataNaix"/>
 				<field name="paisOrigen"/>
@@ -52,17 +55,69 @@
 	</record>
 
 	<record model="ir.ui.view" id="view_zooaf_especie_tree">
-		<field name="name">zooaf.especie</field>
+		<field name="name">zooaf.especie_tree</field>
 		<field name="model">zooaf.especie</field>
 		<field name="type">tree</field>
 		<field name="arch" type="xml">
 			<tree string="Especie">
-				<field name="id"/>
+				<field name="name"/>
 				<field name="familia"/>
-				<field name="nomCientific"/>				
+				<field name="nomCientific"/>			
 				<field name="nomVulgar"/>
 				<field name="perill"/>				
 			</tree>
+		</field>
+	</record>
+
+	<!--Forms view-->
+
+	<record model="ir.ui.view" id="view_zooaf_zoo_form">
+		<field name="name">zooaf.zoo_form</field>
+		<field name="model">zooaf.zoo</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Zoo">
+				<group colspan="4">
+					<field name="name"/>
+					<field name="nom"/>
+					<field name="grandaria"/>
+					<field name="ciutat"/>
+					<field name="pais"/>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_zooaf_animal_form">
+		<field name="name">zooaf.animal_form</field>
+		<field name="model">zooaf.animal</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Animal">
+				<group colspan="4">
+					<field name="name"/>
+					<field name="continentOrigen"/>
+					<field name="dataNaix"/>
+					<field name="paisOrigen"/>
+					<field name="sexe"/>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_zooaf_especie_form">
+		<field name="name">zooaf.especie_form</field>
+		<field name="model">zooaf.especie</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Especie">
+				<group colspan="4">
+					<field name="familia"/>
+					<field name="nomCientific"/>			
+					<field name="nomVulgar"/>
+					<field name="perill"/>	
+				</group>
+			</form>
 		</field>
 	</record>
 
